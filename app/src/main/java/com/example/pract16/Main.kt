@@ -76,5 +76,19 @@ class Main : AppCompatActivity() {
             toast.setGravity(Gravity.CENTER, 0 ,0)
             toast.show()
         }
+
+        binding.btn6.setOnClickListener{
+            val customToastBinding = CustomToastBinding.inflate(layoutInflater)
+            customToastBinding.toastImage.setImageResource(R.drawable.img_2)
+            customToastBinding.toastText1.text = "Этот текст установлен программно1"
+            customToastBinding.toastText2.text = "Этот текст установлен программно2"
+            customToastBinding.toastText1.setBackgroundColor(getColor(R.color.lightGray))
+            customToastBinding.toastText2.setBackgroundColor(getColor(R.color.lightGray))
+
+            val toast = Toast(this)
+            toast.view = customToastBinding.customToastContainer
+            toast.setGravity(Gravity.CENTER, 0 ,0)
+            toast.show()
+        }
     }
 }
