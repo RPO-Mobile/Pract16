@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.toSpanned
 import com.example.pract16.databinding.CustomToastBinding
 import com.example.pract16.databinding.MainActBinding
 
@@ -79,15 +80,11 @@ class Main : AppCompatActivity() {
 
         binding.btn6.setOnClickListener{
             val customToastBinding = CustomToastBinding.inflate(layoutInflater)
-            customToastBinding.toastImage.setImageResource(R.drawable.img_2)
-            customToastBinding.toastText1.text = "Этот текст установлен программно1"
-            customToastBinding.toastText2.text = "Этот текст установлен программно2"
-            customToastBinding.toastText1.setBackgroundColor(getColor(R.color.lightGray))
-            customToastBinding.toastText2.setBackgroundColor(getColor(R.color.lightGray))
+            customToastBinding.toastText1.text = binding.et1.text.toString()
+            customToastBinding.toastText2.text = binding.et2.text.toString()
 
             val toast = Toast(this)
             toast.view = customToastBinding.customToastContainer
-            toast.setGravity(Gravity.CENTER, 0 ,0)
             toast.show()
         }
     }
